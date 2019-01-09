@@ -61,12 +61,18 @@
     <Reference Include="LxcLibrary.Cache">
       <HintPath>ImportLibs\LxcLibrary.Cache.dll</HintPath>
     </Reference>
+    <Reference Include="LxcLibrary.CommonUtils">
+      <HintPath>ImportLibs\LxcLibrary.CommonUtils.dll</HintPath>
+    </Reference>
     <Reference Include="LxcLibrary.WebBase">
       <HintPath>ImportLibs\LxcLibrary.WebBase.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data">
       <HintPath>ImportLibs\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.SQLite, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.109.2\lib\net45\System.Data.SQLite.dll</HintPath>
@@ -137,6 +143,7 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

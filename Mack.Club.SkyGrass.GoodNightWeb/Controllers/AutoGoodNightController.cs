@@ -1,4 +1,5 @@
 ﻿using LxcLibrary.Cache.MySql.lxc_pro_db.auto_good_night_log;
+using LxcLibrary.CommonUtils;
 using LxcLibrary.WebBase.Controllers;
 using Mack.Club.SkyGrass.GoodNightWeb.BLL;
 using System;
@@ -71,10 +72,23 @@ namespace Mack.Club.SkyGrass.GoodNightWeb.Controllers
             AutoGoodNightLogCache cache = new AutoGoodNightLogCache();
             cache.Init(dbConnectionStr);
             List<AutoGoodNightLogModel> list = cache.GetModelList(Convert.ToUInt64(from_group), good_night_key);
+            List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
+
+            foreach (AutoGoodNightLogModel item in list)
+            {
+                Dictionary<string, object> m = new Dictionary<string, object>();
+                m["from_qq"] = item.from_qq;
+                m["from_group"] = item.from_group;
+                m["add_time"] = item.add_time;
+                m["message"] = CqpEmoji.EmojiStringToNormalString(item.message);
+                m["nick_name"] = item.nick_name;
+
+                result.Add(m);
+            }
 
             Dictionary<string, object> ret = new Dictionary<string, object>();
             ret["errcode"] = 0;
-            ret["data"] = list;
+            ret["data"] = result;
             ret["message"] = "";
 
             return Json(ret, JsonRequestBehavior.AllowGet);
